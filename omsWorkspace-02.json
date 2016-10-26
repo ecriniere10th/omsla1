@@ -755,6 +755,25 @@
         "product": "[concat('OMSGallery/', variables('agentSolutionName'))]",
         "promotionCode": ""
       }
+    },
+    {
+      "apiVersion": "2015-11-01-preview",
+      "name": "[variables('activitylogSolution')]",
+      "type": "Microsoft.OperationsManagement/solutions",
+      "location": "[parameters('omsWorkspaceRegion')]",
+      "id": "[resourceId('Microsoft.OperationsManagement/solutions', variables('activitylogSolution'))]",
+      "dependsOn": [
+        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspaceName'))]"
+      ],
+      "properties": {
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspaceName'))]"
+      },
+      "plan": {
+        "name": "[variables('activitylogSolution')]",
+        "publisher": "Microsoft",
+        "product": "[concat('OMSGallery/', variables('activitylogSolutionName'))]",
+        "promotionCode": ""
+      }
     }
   ],
   "outputs": { }
